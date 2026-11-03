@@ -123,7 +123,7 @@ app.patch('/studios/:id', verifyApi, async (req, res) => {
   }
 });
 
-// 5. DELETE STUDIO API
+
 app.delete('/studios/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -135,14 +135,14 @@ app.delete('/studios/:id', async (req, res) => {
 });
 
 
-// ==================== BOOKINGS API ROUTES ====================
+
 
 // A. POST /bookings - Save new studio booking (WITH DOUBLE-BOOKING PREVENTION)
 app.post('/bookings', async (req, res) => {
   try {
     const bookingData = req.body;
 
-    // Challenge 2: Duplicate / Overlap booking prevention check
+
     const existingBooking = await bookingCollection.findOne({
       studioId: bookingData.studioId,
       date: bookingData.date,
