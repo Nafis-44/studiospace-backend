@@ -7,7 +7,7 @@ import { createRemoteJWKSet, jwtVerify } from 'jose';
 const app = express();
 const port = 8000;
 
-// Middleware
+
 app.use(cors());
 app.use(express.json());
 
@@ -48,12 +48,12 @@ const verifyApi = async (req, res, next) => {
     return res.status(500).send({ error: "Unauthorized" });
   }
 }
-// Test Route
+
 app.get('/', (req, res) => {
   res.send({ message: 'Server is running fine!' });
 });
 
-// 1. ADD STUDIO API
+
 app.post('/add-studio',verifyApi, async (req, res) => {
   try {
     const studioData = req.body;
