@@ -137,7 +137,6 @@ app.delete('/studios/:id', async (req, res) => {
 
 
 
-// A. POST /bookings - Save new studio booking (WITH DOUBLE-BOOKING PREVENTION)
 app.post('/bookings', async (req, res) => {
   try {
     const bookingData = req.body;
