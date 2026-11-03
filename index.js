@@ -149,14 +149,14 @@ app.post('/bookings', async (req, res) => {
       status: "Confirmed"
     });
 
-    // Same studio ebong same date-e "Confirmed" booking paoya gele request cancel kora hobe
+    
     if (existingBooking) {
       return res.status(400).send({
         error: "This studio is already booked and confirmed for this date!"
       });
     }
 
-    // Default status "Pending" set kore save kora
+    
     const newBooking = {
       ...bookingData,
       status: "Pending",
@@ -170,7 +170,7 @@ app.post('/bookings', async (req, res) => {
   }
 });
 
-// B. GET /bookings - Fetch all user bookings
+
 app.get('/bookings', async (req, res) => {
   try {
     const result = await bookingCollection.find().toArray();
@@ -180,7 +180,7 @@ app.get('/bookings', async (req, res) => {
   }
 });
 
-// C. PATCH /bookings/:id/cancel - Cancel a booking
+
 app.patch('/bookings/:id/cancel', async (req, res) => {
   try {
     const { id } = req.params;
@@ -195,7 +195,7 @@ app.patch('/bookings/:id/cancel', async (req, res) => {
   }
 });
 
-// ============================================================
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
