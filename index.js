@@ -64,7 +64,7 @@ app.post('/add-studio',verifyApi, async (req, res) => {
   }
 });
 
-// Get ALL Studios (For My Listings & Explore Page)
+
 app.get('/studios', async (req, res) => {
   try {
     const result = await studioCollection.find().toArray();
@@ -75,7 +75,7 @@ app.get('/studios', async (req, res) => {
   }
 });
 
-// 2. FEATURED STUDIOS API (URL: /featured-studios)
+
 app.get('/featured-studios', async (req, res) => {
   try {
     const result = await studioCollection.find().limit(6).toArray();
@@ -85,7 +85,7 @@ app.get('/featured-studios', async (req, res) => {
   }
 });
 
-// 3. GET SINGLE STUDIO BY ID
+
 app.get('/studios/:id', verifyApi, async (req, res) => {
 
   try {
@@ -97,7 +97,7 @@ app.get('/studios/:id', verifyApi, async (req, res) => {
   }
 });
 
-// 4. UPDATE STUDIO API (PATCH)
+
 app.patch('/studios/:id', verifyApi, async (req, res) => {
   try {
     const { id } = req.params;
